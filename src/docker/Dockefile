@@ -1,0 +1,12 @@
+# Crypto Currency Binance Data Receiver - Dockerfile
+# Image: https://hub.docker.com/_/openjdk/
+FROM openjdk:8
+
+MAINTAINER  David Q. Romney <dqromney@gmail.com>
+
+COPY "drBinance-1.0-SNAPSHOT-jar-with-dependencies.jar" /usr/src/ccdr/drBinance.jar
+
+WORKDIR /usr/src/ccdr
+
+# CMD ["java", "-jar", "ccdr.jar"]
+ENTRYPOINT ["java", "-jar", "drBinance.jar"]
