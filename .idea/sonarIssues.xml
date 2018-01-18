@@ -143,6 +143,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../incomm/maples/maples-config/temp/maples/maples-config/logs/spring.log">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../incomm/maples/maples-eureka/temp/maples/maples-eureka/logs/spring.log">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../incomm/maples/maples-orders-items/temp/maples/maples-orders-items/logs/spring.log">
           <value>
             <set />

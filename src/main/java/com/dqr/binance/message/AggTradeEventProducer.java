@@ -10,10 +10,13 @@ import java.util.Properties;
 public class AggTradeEventProducer {
 	
 	private Properties props;
+	// private Producer< String, AggTradeEvent > producer;
+	private Producer< String, String > producer;
 	
 	public AggTradeEventProducer() {
 		props = new Properties();
-		props.put( "bootstrap.servers", "localhost:9092" );
+		//props.put( "bootstrap.servers", "localhost:9092" );
+		props.put( "bootstrap.servers", "192.168.0.4:9092" );
 		props.put( "acks", "all" );
 		props.put( "retries", 0 );
 		props.put( "batch.size", 16384 );
@@ -24,24 +27,20 @@ public class AggTradeEventProducer {
 	}
 	
 	public void init() {
+		producer = new KafkaProducer<>( props );
+	}
+	
+	public void close() {
+		producer.close();
 	}
 	
 	public void produce( AggTradeEvent pAppTradeEvent ) {
-		Producer< String, AggTradeEvent > producer = null;
 		try {
-			producer = new KafkaProducer<>( props );
-			
-			for( int i = 0; i < 100; i++ ) {
-				String msg = "Message " + i;
-				producer.send( new ProducerRecord< String, AggTradeEvent >( "HelloKafkaTopic", pAppTradeEvent ) );
-				System.out.println( "Sent:" + pAppTradeEvent.toString() );
-			}
+			producer.send( new ProducerRecord<>( "AggTradeEventTopic", pAppTradeEvent.toString() ) );
+			System.out.println( "Sent:" + pAppTradeEvent.toString() );
 		}
 		catch( Exception e ) {
 			e.printStackTrace();
-		}
-		finally {
-			producer.close();
 		}
 	}
 }
