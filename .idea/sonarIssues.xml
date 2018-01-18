@@ -73,6 +73,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/dqr/binance/message/AggTradeEventProducer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/dqr/binance/util/InstallCert.java">
           <value>
             <set />
@@ -134,6 +139,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/test/java/com/dqr/MainTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../incomm/maples/maples-orders-items/temp/maples/maples-orders-items/logs/spring.log">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../incomm/maples/maples-zuul/temp/maples/maples-zuul/logs/spring.log">
           <value>
             <set />
           </value>

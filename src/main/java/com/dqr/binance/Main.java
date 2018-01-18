@@ -13,7 +13,12 @@ public class Main {
         BinanceApiWebSocketClient client = BinanceApiClientFactory.newInstance().newWebSocketClient();
     
         // Listen for aggregated trade events for ETH/BTC
-        client.onAggTradeEvent("ethbtc", response -> System.out.println(response));
+         client.onAggTradeEvent("ethbtc", response -> System.out.println(response));
+//        client.onAggTradeEvent("ethbtc", response -> {
+//            System.out.println(response.getSymbol());
+//            System.out.println(response.getQuantity());
+//            System.out.println(response.getPrice());
+//        });
     
         // Listen for changes in the order book in ETH/BTC
         client.onDepthEvent("ethbtc", response -> System.out.println(response));
