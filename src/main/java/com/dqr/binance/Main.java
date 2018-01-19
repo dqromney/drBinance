@@ -3,12 +3,14 @@ package com.dqr.binance;
 import com.binance.api.client.BinanceApiClientFactory;
 import com.binance.api.client.BinanceApiWebSocketClient;
 import com.dqr.binance.message.AggTradeEventProducer;
-import lombok.extern.java.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-@Log
 public class Main {
+    final static Logger logger = LoggerFactory.getLogger( Main.class );
+    
     private AggTradeEventProducer producer = null;
     private BinanceApiWebSocketClient client;
     
@@ -23,12 +25,14 @@ public class Main {
 
     public void execute() {
         // Listen for aggregated trade events for ETH/BTC
-        client.onAggTradeEvent( "ethbtc", response -> {
-            System.out.println( response );
+//        client.onAggTradeEvent( "ethbtc", response -> {
+//            System.out.print(".");
+//            producer.produce( response );
+//        } );
+        // Listen for aggregated trade events for BTC/USDT
+        client.onAggTradeEvent( "btcusdt", response -> {
+            System.out.print(".");
             producer.produce( response );
-            // System.out.println(response.getSymbol());
-            // System.out.println(response.getQuantity());
-            // System.out.println(response.getPrice());
         } );
     
         // Listen for changes in the order book in ETH/BTC
